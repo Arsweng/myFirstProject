@@ -1,0 +1,122 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: rgb(56, 56, 56);
+}
+.wrapper{
+    background: black;
+    color: rgb(75, 75, 75);
+    width: 770px;
+    border-radius: 10px;
+    padding: 30px;
+}
+.wrapper .content-box{
+    padding: 13px 20px 0;
+    border-radius: 10px;
+    border: 1px solid gray;
+}
+.content-box .typing-text{
+    max-height: 200px;
+    overflow-y: auto;
+}
+.typing-text::-webkit-scrollbar{
+    width: 0cm;
+}
+.typing-text{
+    font-size:21px;
+    text-align: justify;
+    letter-spacing: 1px;
+    word-break: break-all;
+}
+.input-field{
+    opacity: 0;
+    z-index: -100;
+    position: absolute;
+
+}
+.content-box .content{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    padding: 12px 0;
+    border-top: 1px solid;
+    justify-content: space-between;
+    transition: transform(0.3s ease);
+}
+.content-box .content:active{
+    transform: scale(1);
+}
+.content .result-details{
+    display: flex;
+    width: calc(100% - 150px);
+    justify-content: space-between;
+}
+.result-details li{
+    height: 22px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+.result-details li:not(:first-child){
+    border-left: 1px solid;
+    padding-left: 20px;
+}
+
+.result-details li p{
+    font-size: 19px;
+}
+.result-details li span{
+    display: block;
+    font-size: 20px;
+    margin-left: 5px;
+}
+.content button{
+    font-size: 20px;
+    background: rgb(24, 24, 24);
+    color: inherit;
+    border: 1px solid;
+    padding: 5px;
+    cursor: pointer;
+    
+    border-radius: 10px;
+}
+.result-details li b{
+    font-weight: 500;
+}
+.typing-text p span{
+    position: relative;
+}
+.typing-text p span.correct{
+    color: white;
+}
+.typing-text p span.incorrect{
+    color: rgb(48, 48, 48);
+    background-color: rgb(90, 90, 90);
+    outline: none;
+    border: none;
+    border-radius: 1px;
+    
+}
+.typing-text p span.active::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    animation: blink 1s ease-in-out infinite;
+    height: 100%;
+    width: 2px;
+    background-color: yellow;
+}
+@keyframes blink {
+    50%{
+        opacity: 1;
+    }
+}
